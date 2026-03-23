@@ -30,6 +30,15 @@
     <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
     <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
 
+    <aside class="side-menu" aria-label="ページ内メニュー">
+      <p class="side-menu-title">MENU</p>
+      <a href="#services">Services</a>
+      <a href="#works">Works</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </aside>
+
     <header class="hero container">
       <nav class="topnav">
         <p class="logo">KOMINAMI NAKAMI</p>
@@ -108,40 +117,49 @@
           <p class="kicker">Event Gallery</p>
           <h2>STRIDE 2026-03-07</h2>
         </div>
+        <p class="event-links">
+          <a href="https://x.com/STRIDE_KS" target="_blank" rel="noreferrer">イベント公式アカウント</a>
+          <a href="https://x.com/STRIDE_KS/status/2019003020919574700?s=20" target="_blank" rel="noreferrer">フライヤー</a>
+        </p>
         <p class="notice">実際に撮影した写真から一部を掲載しています。</p>
         <div class="photo-grid">
           <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-4.webp" alt="STRIDEイベント写真 1" loading="lazy" decoding="async" />
+            <img src="works/STRIDE_20260307/20260307_STRIDE-4.webp" alt="STRIDEイベント写真 1" loading="lazy" decoding="async" class="zoomable" />
           </figure>
           <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-61.webp" alt="STRIDEイベント写真 2" loading="lazy" decoding="async" />
+            <img src="works/STRIDE_20260307/20260307_STRIDE-61.webp" alt="STRIDEイベント写真 2" loading="lazy" decoding="async" class="zoomable" />
           </figure>
           <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-87.webp" alt="STRIDEイベント写真 3" loading="lazy" decoding="async" />
+            <img src="works/STRIDE_20260307/20260307_STRIDE-87.webp" alt="STRIDEイベント写真 3" loading="lazy" decoding="async" class="zoomable" />
           </figure>
           <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-95.webp" alt="STRIDEイベント写真 4" loading="lazy" decoding="async" />
+            <img src="works/STRIDE_20260307/20260307_STRIDE-95.webp" alt="STRIDEイベント写真 4" loading="lazy" decoding="async" class="zoomable" />
           </figure>
           <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-113.webp" alt="STRIDEイベント写真 5" loading="lazy" decoding="async" />
+            <img src="works/STRIDE_20260307/20260307_STRIDE-113.webp" alt="STRIDEイベント写真 5" loading="lazy" decoding="async" class="zoomable" />
           </figure>
           <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-139.webp" alt="STRIDEイベント写真 6" loading="lazy" decoding="async" />
+            <img src="works/STRIDE_20260307/20260307_STRIDE-139.webp" alt="STRIDEイベント写真 6" loading="lazy" decoding="async" class="zoomable" />
           </figure>
           <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-149.webp" alt="STRIDEイベント写真 7" loading="lazy" decoding="async" />
+            <img src="works/STRIDE_20260307/20260307_STRIDE-149.webp" alt="STRIDEイベント写真 7" loading="lazy" decoding="async" class="zoomable" />
           </figure>
           <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-154.webp" alt="STRIDEイベント写真 8" loading="lazy" decoding="async" />
+            <img src="works/STRIDE_20260307/20260307_STRIDE-154.webp" alt="STRIDEイベント写真 8" loading="lazy" decoding="async" class="zoomable" />
           </figure>
           <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-156.webp" alt="STRIDEイベント写真 9" loading="lazy" decoding="async" />
+            <img src="works/STRIDE_20260307/20260307_STRIDE-156.webp" alt="STRIDEイベント写真 9" loading="lazy" decoding="async" class="zoomable" />
           </figure>
           <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-185.webp" alt="STRIDEイベント写真 10" loading="lazy" decoding="async" />
+            <img src="works/STRIDE_20260307/20260307_STRIDE-185.webp" alt="STRIDEイベント写真 10" loading="lazy" decoding="async" class="zoomable" />
           </figure>
         </div>
       </section>
+
+      <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button id="lightboxClose" class="lightbox-close" aria-label="拡大画像を閉じる">×</button>
+        <img id="lightboxImage" src="" alt="" />
+      </div>
 
       <section id="pricing" class="section reveal">
         <div class="section-head">
@@ -190,5 +208,46 @@
         <small>© 2026 kominami-nakami</small>
       </div>
     </footer>
+
+    <script>
+      (() => {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightboxImage");
+        const closeButton = document.getElementById("lightboxClose");
+        const zoomableImages = document.querySelectorAll(".zoomable");
+
+        const openLightbox = (img) => {
+          lightboxImage.src = img.src;
+          lightboxImage.alt = img.alt;
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        };
+
+        const closeLightbox = () => {
+          lightbox.classList.remove("is-open");
+          lightbox.setAttribute("aria-hidden", "true");
+          lightboxImage.src = "";
+          document.body.style.overflow = "";
+        };
+
+        zoomableImages.forEach((img) => {
+          img.addEventListener("click", () => openLightbox(img));
+        });
+
+        closeButton.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+            closeLightbox();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
