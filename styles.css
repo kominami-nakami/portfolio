@@ -519,10 +519,8 @@ a {
 
 @media (max-width: 900px) {
   .side-menu {
-    position: sticky;
-    top: 60px;
-    left: 10px;
-    margin: 0;
+    top: 68px;
+    left: 16px;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
