@@ -30,8 +30,22 @@
     <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
     <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
 
-    <aside class="side-menu" aria-label="ページ内メニュー">
+    <button
+      id="menuToggle"
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="sideMenu"
+      aria-label="メニューを開く"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <aside id="sideMenu" class="side-menu" aria-label="ページ内メニュー">
       <p class="side-menu-title">MENU</p>
+      <a href="#profile">Profile</a>
       <a href="#services">Services</a>
       <a href="#works">Works</a>
       <a href="#gallery">Gallery</a>
@@ -52,7 +66,7 @@
         残す。
       </h1>
       <p class="lead">
-        こみなみなかみは、クラブイベントの撮影を中心に、アー写撮影・PR動画・MV制作まで対応する個人クリエイターです。
+        こみなみなかみはクラブイベント撮影を中心に、アーティスト写真、PR動画、MV撮影まで対応しています。
       </p>
       <div class="hero-actions">
         <a class="button primary" href="#services">対応メニューを見る</a>
@@ -61,6 +75,27 @@
     </header>
 
     <main class="container">
+      <section id="profile" class="section reveal">
+        <div class="section-head">
+          <p class="kicker">Profile</p>
+          <h2>対応エリアと活動情報</h2>
+        </div>
+        <div class="profile-grid">
+          <article class="card profile-card">
+            <h3>対応エリア</h3>
+            <p>愛知中心で撮影対応しています。遠方は交通費相談のうえ対応可能です。</p>
+          </article>
+          <article class="card profile-card">
+            <h3>活動時間</h3>
+            <p>基本は週末・祝日で対応しています。ナイトイベント撮影も可能です。</p>
+          </article>
+          <article class="card profile-card">
+            <h3>得意領域</h3>
+            <p>クラブイベントの写真撮影を中心に対応しています。現場の熱量や空気感を残すカットづくりを重視しています。</p>
+          </article>
+        </div>
+      </section>
+
       <section id="services" class="section reveal">
         <div class="section-head">
           <p class="kicker">Services</p>
@@ -74,9 +109,9 @@
             </p>
           </article>
           <article class="card service">
-            <h3>02. Artist Photo</h3>
+            <h3>02. アーティスト写真</h3>
             <p>
-              アーティストの世界観に合わせたアー写撮影。宣材用途を想定して、縦横比やトリミングを考慮した構図で制作します。
+              アーティストの世界観に合わせたアーティスト写真を撮影します。宣材用途を想定して、縦横比やトリミングを考慮した構図で制作します。
             </p>
           </article>
           <article class="card service">
@@ -181,7 +216,7 @@
         </div>
         <div class="pricing-grid">
           <article class="card pricing-card">
-            <h3>写真撮影（クラブイベント）</h3>
+            <h3>写真撮影（クラブイベント・アーティスト写真）</h3>
             <p class="price">10,000円 <span>（〜6h）</span></p>
             <ul>
               <li>5日以内のデータ納品: +5,000円</li>
@@ -191,7 +226,7 @@
           </article>
           <article class="card pricing-card">
             <h3>動画撮影（素材データ納品）</h3>
-            <p class="price">15,000円 <span>（〜3h）</span></p>
+            <p class="price">20,000円 <span>（〜3h）</span></p>
             <ul>
               <li>編集: +15,000円</li>
               <li>交通費: 別途</li>
@@ -206,9 +241,15 @@
           <p class="kicker">Contact</p>
           <h2>撮影のご相談</h2>
         </div>
+        <ol class="flow-list">
+          <li>イベント情報・希望内容をメールで相談</li>
+          <li>内容確認後、見積と撮影条件をすり合わせ</li>
+          <li>撮影実施後、データを納品</li>
+        </ol>
         <p>
           ご依頼の際は、イベント日程・場所・希望納品形式（写真 / 動画）を添えてメールでご連絡ください。
         </p>
+        <p>通常48時間以内に返信します。</p>
         <p>
           Mail:
           <a href="mailto:contact@kominami-nakami.com">contact@kominami-nakami.com</a>
@@ -229,6 +270,8 @@
         const closeButton = document.getElementById("lightboxClose");
         const zoomableImages = document.querySelectorAll(".zoomable");
         const slideshow = document.getElementById("strideSlideshow");
+        const menuToggle = document.getElementById("menuToggle");
+        const sideMenu = document.getElementById("sideMenu");
 
         const openLightbox = (img) => {
           lightboxImage.src = img.src;
@@ -300,6 +343,38 @@
           nextButton.addEventListener("click", () => {
             currentIndex = (currentIndex + 1) % slides.length;
             renderSlide(currentIndex);
+          });
+        }
+
+        if (menuToggle && sideMenu) {
+          const setMenuState = (open) => {
+            sideMenu.classList.toggle("is-open", open);
+            menuToggle.classList.toggle("is-open", open);
+            menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+            menuToggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+          };
+
+          menuToggle.addEventListener("click", () => {
+            const willOpen = !sideMenu.classList.contains("is-open");
+            setMenuState(willOpen);
+          });
+
+          sideMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => setMenuState(false));
+          });
+
+          document.addEventListener("click", (event) => {
+            const clickedInsideMenu = sideMenu.contains(event.target);
+            const clickedToggle = menuToggle.contains(event.target);
+            if (!clickedInsideMenu && !clickedToggle) {
+              setMenuState(false);
+            }
+          });
+
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+              setMenuState(false);
+            }
           });
         }
       })();
