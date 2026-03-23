@@ -210,26 +210,75 @@ h2 {
   color: var(--muted);
 }
 
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+.slideshow {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  background: var(--surface);
 }
 
-.photo-card {
-  margin: 0;
+.slide-main-wrap {
+  position: relative;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid var(--border);
   background: #000;
 }
 
-.photo-card img {
+.slide-main {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   cursor: zoom-in;
+}
+
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.slide-nav.prev {
+  left: 10px;
+}
+
+.slide-nav.next {
+  right: 10px;
+}
+
+.slide-thumbs {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.thumb {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.thumb.is-active {
+  border-color: var(--accent);
 }
 
 .lightbox {
@@ -405,20 +454,23 @@ a {
     top: 8px;
     left: auto;
     margin: 8px 12px 0;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
   .side-menu-title {
-    width: 100%;
+    width: auto;
   }
 
   .service-grid,
   .work-grid,
-  .photo-grid,
   .pricing-grid {
     grid-template-columns: 1fr;
+  }
+
+  .slide-thumbs {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .hero {

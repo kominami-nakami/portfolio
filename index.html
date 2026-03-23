@@ -41,7 +41,7 @@
 
     <header class="hero container">
       <nav class="topnav">
-        <p class="logo">KOMINAMI NAKAMI</p>
+        <p class="logo">こみなみなかみ</p>
         <a class="cta" href="#contact">お問い合わせ</a>
       </nav>
 
@@ -122,37 +122,50 @@
           <a href="https://x.com/STRIDE_KS/status/2019003020919574700?s=20" target="_blank" rel="noreferrer">フライヤー</a>
         </p>
         <p class="notice">実際に撮影した写真から一部を掲載しています。</p>
-        <div class="photo-grid">
-          <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-4.webp" alt="STRIDEイベント写真 1" loading="lazy" decoding="async" class="zoomable" />
-          </figure>
-          <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-61.webp" alt="STRIDEイベント写真 2" loading="lazy" decoding="async" class="zoomable" />
-          </figure>
-          <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-87.webp" alt="STRIDEイベント写真 3" loading="lazy" decoding="async" class="zoomable" />
-          </figure>
-          <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-95.webp" alt="STRIDEイベント写真 4" loading="lazy" decoding="async" class="zoomable" />
-          </figure>
-          <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-113.webp" alt="STRIDEイベント写真 5" loading="lazy" decoding="async" class="zoomable" />
-          </figure>
-          <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-139.webp" alt="STRIDEイベント写真 6" loading="lazy" decoding="async" class="zoomable" />
-          </figure>
-          <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-149.webp" alt="STRIDEイベント写真 7" loading="lazy" decoding="async" class="zoomable" />
-          </figure>
-          <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-154.webp" alt="STRIDEイベント写真 8" loading="lazy" decoding="async" class="zoomable" />
-          </figure>
-          <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-156.webp" alt="STRIDEイベント写真 9" loading="lazy" decoding="async" class="zoomable" />
-          </figure>
-          <figure class="photo-card">
-            <img src="works/STRIDE_20260307/20260307_STRIDE-185.webp" alt="STRIDEイベント写真 10" loading="lazy" decoding="async" class="zoomable" />
-          </figure>
+        <div class="slideshow" id="strideSlideshow">
+          <div class="slide-main-wrap">
+            <button class="slide-nav prev" type="button" aria-label="前の写真">‹</button>
+            <img
+              id="slideMainImage"
+              class="slide-main zoomable"
+              src="works/STRIDE_20260307/20260307_STRIDE-4.webp"
+              alt="STRIDEイベント写真 1"
+              decoding="async"
+            />
+            <button class="slide-nav next" type="button" aria-label="次の写真">›</button>
+          </div>
+          <div class="slide-thumbs" aria-label="サムネイル一覧">
+            <button class="thumb is-active" type="button" data-src="works/STRIDE_20260307/20260307_STRIDE-4.webp" data-alt="STRIDEイベント写真 1">
+              <img src="works/STRIDE_20260307/20260307_STRIDE-4.webp" alt="STRIDEサムネイル 1" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" data-src="works/STRIDE_20260307/20260307_STRIDE-61.webp" data-alt="STRIDEイベント写真 2">
+              <img src="works/STRIDE_20260307/20260307_STRIDE-61.webp" alt="STRIDEサムネイル 2" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" data-src="works/STRIDE_20260307/20260307_STRIDE-87.webp" data-alt="STRIDEイベント写真 3">
+              <img src="works/STRIDE_20260307/20260307_STRIDE-87.webp" alt="STRIDEサムネイル 3" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" data-src="works/STRIDE_20260307/20260307_STRIDE-95.webp" data-alt="STRIDEイベント写真 4">
+              <img src="works/STRIDE_20260307/20260307_STRIDE-95.webp" alt="STRIDEサムネイル 4" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" data-src="works/STRIDE_20260307/20260307_STRIDE-113.webp" data-alt="STRIDEイベント写真 5">
+              <img src="works/STRIDE_20260307/20260307_STRIDE-113.webp" alt="STRIDEサムネイル 5" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" data-src="works/STRIDE_20260307/20260307_STRIDE-139.webp" data-alt="STRIDEイベント写真 6">
+              <img src="works/STRIDE_20260307/20260307_STRIDE-139.webp" alt="STRIDEサムネイル 6" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" data-src="works/STRIDE_20260307/20260307_STRIDE-149.webp" data-alt="STRIDEイベント写真 7">
+              <img src="works/STRIDE_20260307/20260307_STRIDE-149.webp" alt="STRIDEサムネイル 7" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" data-src="works/STRIDE_20260307/20260307_STRIDE-154.webp" data-alt="STRIDEイベント写真 8">
+              <img src="works/STRIDE_20260307/20260307_STRIDE-154.webp" alt="STRIDEサムネイル 8" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" data-src="works/STRIDE_20260307/20260307_STRIDE-156.webp" data-alt="STRIDEイベント写真 9">
+              <img src="works/STRIDE_20260307/20260307_STRIDE-156.webp" alt="STRIDEサムネイル 9" loading="lazy" decoding="async" />
+            </button>
+            <button class="thumb" type="button" data-src="works/STRIDE_20260307/20260307_STRIDE-185.webp" data-alt="STRIDEイベント写真 10">
+              <img src="works/STRIDE_20260307/20260307_STRIDE-185.webp" alt="STRIDEサムネイル 10" loading="lazy" decoding="async" />
+            </button>
+          </div>
         </div>
       </section>
 
@@ -215,6 +228,7 @@
         const lightboxImage = document.getElementById("lightboxImage");
         const closeButton = document.getElementById("lightboxClose");
         const zoomableImages = document.querySelectorAll(".zoomable");
+        const slideshow = document.getElementById("strideSlideshow");
 
         const openLightbox = (img) => {
           lightboxImage.src = img.src;
@@ -247,6 +261,47 @@
             closeLightbox();
           }
         });
+
+        if (slideshow) {
+          const mainImage = document.getElementById("slideMainImage");
+          const thumbButtons = Array.from(slideshow.querySelectorAll(".thumb"));
+          const prevButton = slideshow.querySelector(".slide-nav.prev");
+          const nextButton = slideshow.querySelector(".slide-nav.next");
+          const slides = thumbButtons.map((button) => ({
+            src: button.dataset.src,
+            alt: button.dataset.alt,
+          }));
+          let currentIndex = 0;
+
+          const renderSlide = (index) => {
+            const slide = slides[index];
+            if (!slide) {
+              return;
+            }
+            mainImage.src = slide.src;
+            mainImage.alt = slide.alt;
+            thumbButtons.forEach((button, idx) => {
+              button.classList.toggle("is-active", idx === index);
+            });
+          };
+
+          thumbButtons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+              currentIndex = index;
+              renderSlide(currentIndex);
+            });
+          });
+
+          prevButton.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            renderSlide(currentIndex);
+          });
+
+          nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            renderSlide(currentIndex);
+          });
+        }
       })();
     </script>
   </body>
