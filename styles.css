@@ -139,6 +139,12 @@ h2 {
   gap: 12px;
 }
 
+.notice {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .work-item {
   min-height: 170px;
   padding: 16px;
@@ -162,6 +168,61 @@ h2 {
 .work-copy {
   margin: 8px 0 0;
   color: var(--muted);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.photo-card {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.pricing-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.price {
+  margin: 10px 0 8px;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 2.2rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.price span {
+  font-family: "Noto Sans JP", "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.pricing-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.pricing-card li {
+  margin: 6px 0;
 }
 
 .contact {
@@ -258,7 +319,9 @@ a {
 
 @media (max-width: 900px) {
   .service-grid,
-  .work-grid {
+  .work-grid,
+  .photo-grid,
+  .pricing-grid {
     grid-template-columns: 1fr;
   }
 
