@@ -538,6 +538,11 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .work-item {
+    min-height: 132px;
+    justify-content: flex-start;
+  }
+
   .slide-thumbs {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
