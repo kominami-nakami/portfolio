@@ -154,7 +154,7 @@ h1 {
   letter-spacing: 0.015em;
 }
 
-h1 span {
+.headline-accent {
   color: var(--accent-2);
 }
 
@@ -255,7 +255,7 @@ h2 {
     var(--surface);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .work-label {
@@ -268,6 +268,29 @@ h2 {
 .work-copy {
   margin: 8px 0 0;
   color: var(--muted);
+}
+
+.work-item .button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.service-gallery-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.service-gallery-item {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.service-gallery-item h3 {
+  margin: 0;
+  font-size: 1.25rem;
 }
 
 .slideshow {
@@ -319,6 +342,33 @@ h2 {
   display: grid;
   grid-template-columns: repeat(10, minmax(0, 1fr));
   gap: 8px;
+}
+
+.placeholder-main {
+  min-height: 320px;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(206, 58, 30, 0.14),
+      rgba(206, 58, 30, 0.14) 14px,
+      rgba(13, 108, 120, 0.14) 14px,
+      rgba(13, 108, 120, 0.14) 28px
+    ),
+    #201a17;
+}
+
+.placeholder-thumbs {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.placeholder-thumb {
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  border: 2px dashed var(--border);
+  background: rgba(255, 249, 239, 0.6);
 }
 
 .thumb {
